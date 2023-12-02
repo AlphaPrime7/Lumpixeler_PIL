@@ -2,6 +2,7 @@
 .Rhistory
 .RData
 .Ruserdata
+Env*
 EnvVariables.py
 .Rdata
 .httr-oauth

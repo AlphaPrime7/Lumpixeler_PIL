@@ -27,8 +27,8 @@
     Examples
     --------
     ```{python}
-
-    masseff = "C://Users//GrandProf//Pictures//mass.effect//me1.png"
+    
+    masseff = os.getenv('mass_effect')
     
     # Example - Get a contact sheet
       contact_sheet(masseff,numimages = 10, sheet_mode = 'long', ncols = 2)
