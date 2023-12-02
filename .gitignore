@@ -2,8 +2,7 @@
 .Rhistory
 .RData
 .Ruserdata
-.Env*
-EnvVariables.py
+*EnvVariables.py
 .Rdata
 .httr-oauth
 .DS_Store
