@@ -32,6 +32,7 @@
     
     # Example - Get a contact sheet
       contact_sheet(masseff,numimages = 10, sheet_mode = 'long', ncols = 2)
+   ```
 '''
 
 def contact_sheet(ipath, numimages, sheet_mode, ncols=None):
