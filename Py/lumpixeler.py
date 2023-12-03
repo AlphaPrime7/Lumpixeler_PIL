@@ -137,28 +137,28 @@ def rendertext(image, channel, lum, font_num):
     text = "channel {} lum {}".format(channel, lum)
     font_url = 'https://github.com/AlphaPrime7/pilfonts/blob/main/fanwood/Fanwood-Italic.otf?raw=true'
     #font = ImageFont.FreeTypeFont(font=r"fanwood\Fanwood-Italic.otf", size=50)
-    font = ImageFont.FreeTypeFont(font=urlopen(font_url), size=150)
+    font = ImageFont.FreeTypeFont(font=urlopen(font_url), size=130)
     text_draw_obj = ImageDraw.Draw(image)
     text_draw_obj.text( ( int(width/2), (height - 100) ), text, fill='white',font=font, align='left' )  
   
   elif font_num == FontCode.emotional.value:
     text = "channel {} lum {}".format(channel, lum)
     font_url = 'https://github.com/AlphaPrime7/pilfonts/blob/main/emotional-rescue-font/EmotionalRescue.ttf?raw=true'
-    font = ImageFont.truetype(font=urlopen(font_url), size=150)
+    font = ImageFont.truetype(font=urlopen(font_url), size=130)
     text_draw_obj = ImageDraw.Draw(image)
     text_draw_obj.text( ( int(width/2), (height - 100) ), text, fill='white',font=font, align='left' )  
   
   elif font_num == FontCode.free.value:
     text = "channel {} lum {}".format(channel, lum)
     font_url = 'https://github.com/AlphaPrime7/pilfonts/blob/main/feelfree-font/FeelfreePersonalUse.ttf?raw=true'
-    font = ImageFont.truetype(font=urlopen(font_url), size=150)
+    font = ImageFont.truetype(font=urlopen(font_url), size=130)
     text_draw_obj = ImageDraw.Draw(image)
     text_draw_obj.text( ( int(width/2), (height - 100) ), text, fill='white',font=font, align='left' )  
     
   elif font_num == FontCode.courier.value:
     text = "channel {} lum {}".format(channel, lum)
     font_url = 'https://github.com/AlphaPrime7/pilfonts/blob/main/courier-prime-code/courier-prime-code-italic.ttf?raw=true'
-    font = ImageFont.truetype(font=urlopen(font_url), size=150)
+    font = ImageFont.truetype(font=urlopen(font_url), size=130)
     text_draw_obj = ImageDraw.Draw(image)
     text_draw_obj.text( ( int(width/2), (height - 100) ), text, fill='white',font=font, align='left' )  
 
@@ -212,6 +212,14 @@ def lumpixeler(ipath, lums, sheet_mode, image_mode = None, font_num = None, ncol
   from PIL import Image
   from PIL import ImageDraw
   import math
+  import time #CPU exec time
+  import timeit #code execution time
+  from datetime import datetime
+  
+  
+  start = timeit.default_timer()
+  start_adv = datetime.now()
+  st = time.process_time()
   
   if image_mode == 'RGB' or image_mode is None:
     with Image.open(ipath).convert('RGB') as img:
@@ -220,10 +228,7 @@ def lumpixeler(ipath, lums, sheet_mode, image_mode = None, font_num = None, ncol
     with Image.open(ipath) as img:
       img.load()
     
-  if image_mode == 'RGB' or image_mode is None:
-    channels = [0,1,2]
-  else:
-    channels = [0,1,2,3]
+  channels = [0,1,2]
     
   if font_num is None:
     font_num = 1
@@ -279,8 +284,23 @@ def lumpixeler(ipath, lums, sheet_mode, image_mode = None, font_num = None, ncol
         
     canvas = canvas.resize((int(canvas.width/ncols),int(canvas.height/nrows)))
     canvas.show()
+    
+  stop = timeit.default_timer()
+  stop_adv = datetime.now()
+  et = time.process_time()
+  
+  td = (stop_adv - start_adv).total_seconds()
+  res_secs = (et - st)
+  res_min = (et - st) / 60
+  
+  print('Time (seconds): ', stop - start) 
+  print(f"Execution time for cross-validation is: {td:.03f}s")
+  print('CPU Execution time:', res_secs, 'seconds')
+  print('CPU Execution time:', res_min, 'minutes')
 
 masseff = os.getenv('mass_effect')
 
-lumpixeler(ipath = masseff, lums = (0.1,0.5,0.9), sheet_mode = 'balanced', image_mode = 'RGB', font_num = 1, ncols=1)
+#CPU exec time at 153 seconds or ~2.5 minutes
+lumpixeler(ipath = masseff, lums = (0.1,0.5,0.9), sheet_mode = 'balanced', image_mode = 'RGB', font_num = 1, ncols=3)
+lumpixeler(ipath = masseff, lums = (0.1,0.5,0.9), sheet_mode = 'balanced', image_mode = 'RGBA', font_num = 3, ncols=3)
 
