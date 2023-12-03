@@ -137,30 +137,30 @@ def rendertext(image, channel, lum, font_num):
     text = "channel {} lum {}".format(channel, lum)
     font_url = 'https://github.com/AlphaPrime7/pilfonts/blob/main/fanwood/Fanwood-Italic.otf?raw=true'
     #font = ImageFont.FreeTypeFont(font=r"fanwood\Fanwood-Italic.otf", size=50)
-    font = ImageFont.FreeTypeFont(font=urlopen(font_url), size=100)
+    font = ImageFont.FreeTypeFont(font=urlopen(font_url), size=150)
     text_draw_obj = ImageDraw.Draw(image)
-    text_draw_obj.text( ( int(width/2), height ), text, fill='white',font=font, align='left' )  
+    text_draw_obj.text( ( int(width/2), (height - 100) ), text, fill='white',font=font, align='left' )  
   
   elif font_num == FontCode.emotional.value:
     text = "channel {} lum {}".format(channel, lum)
     font_url = 'https://github.com/AlphaPrime7/pilfonts/blob/main/emotional-rescue-font/EmotionalRescue.ttf?raw=true'
-    font = ImageFont.truetype(font=urlopen(font_url), size=100)
+    font = ImageFont.truetype(font=urlopen(font_url), size=150)
     text_draw_obj = ImageDraw.Draw(image)
-    text_draw_obj.text( ( int(width/2), height ), text, fill='white',font=font, align='left' )  
+    text_draw_obj.text( ( int(width/2), (height - 100) ), text, fill='white',font=font, align='left' )  
   
   elif font_num == FontCode.free.value:
     text = "channel {} lum {}".format(channel, lum)
     font_url = 'https://github.com/AlphaPrime7/pilfonts/blob/main/feelfree-font/FeelfreePersonalUse.ttf?raw=true'
-    font = ImageFont.truetype(font=urlopen(font_url), size=100)
+    font = ImageFont.truetype(font=urlopen(font_url), size=150)
     text_draw_obj = ImageDraw.Draw(image)
-    text_draw_obj.text( ( int(width/2), height ), text, fill='white',font=font, align='left' )  
+    text_draw_obj.text( ( int(width/2), (height - 100) ), text, fill='white',font=font, align='left' )  
     
   elif font_num == FontCode.courier.value:
     text = "channel {} lum {}".format(channel, lum)
     font_url = 'https://github.com/AlphaPrime7/pilfonts/blob/main/courier-prime-code/courier-prime-code-italic.ttf?raw=true'
-    font = ImageFont.truetype(font=urlopen(font_url), size=100)
+    font = ImageFont.truetype(font=urlopen(font_url), size=150)
     text_draw_obj = ImageDraw.Draw(image)
-    text_draw_obj.text( ( int(width/2), height ), text, fill='white',font=font, align='left' )  
+    text_draw_obj.text( ( int(width/2), (height - 100) ), text, fill='white',font=font, align='left' )  
 
 '''The `lumpixeler` function creates a contact sheet which is a PIL.Image.Image object with images with difference luminescence.
    
