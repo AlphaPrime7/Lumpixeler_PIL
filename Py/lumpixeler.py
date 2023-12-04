@@ -301,6 +301,7 @@ def lumpixeler(ipath, lums, sheet_mode, image_mode = None, font_num = None, ncol
 masseff = os.getenv('mass_effect')
 
 #CPU exec time at 153 seconds or ~2.5 minutes
+#stopwatch recording on iphone indicated about ~2.34 compared to 2.35 for CPU time.
 lumpixeler(ipath = masseff, lums = (0.1,0.5,0.9), sheet_mode = 'balanced', image_mode = 'RGB', font_num = 1, ncols=3)
 lumpixeler(ipath = masseff, lums = (0.1,0.5,0.9), sheet_mode = 'balanced', image_mode = 'RGBA', font_num = 3, ncols=3)
 

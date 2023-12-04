@@ -110,5 +110,5 @@ def enhsheet(ipath, numimages, enh_scale, sheet_mode, ncols=None, enh_type= None
     
 masseff = os.getenv('mass_effect')
 
-enhsheet(ipath = masseff,numimages = 16, enh_scale = 5, sheet_mode = 'balanced', ncols=3, enh_type= None)
+enhsheet(ipath = masseff,numimages = 16, enh_scale = 3, sheet_mode = 'balanced', ncols=3, enh_type= "contrast")
 
