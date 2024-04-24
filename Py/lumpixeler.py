@@ -55,7 +55,7 @@ def pixelmod(img, channel, lum, image_mode = None):
   for row in range(height): #img.size[1]
     for col in range(width): #img.size[0]
       
-      p = img.getpixel( (col, row) ) #pix = img.load()
+      p = img.getpixel( (col, row) ) #pix = img.load(); img.getdata(), cond_data = [], write a condition cond_data.append(data), img.putdata 
       
       if channel == ChannelCode.red.value:
         if image_mode == 'RGBA':
