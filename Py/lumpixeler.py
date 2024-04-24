@@ -52,8 +52,8 @@ def pixelmod(img, channel, lum, image_mode = None):
     
   blank_image = Image.new(img.mode, (width, height))
   
-  for row in range(height):
-    for col in range(width):
+  for row in range(height): #img.size[1]
+    for col in range(width): #img.size[0]
       
       p = img.getpixel( (col, row) )
       
